@@ -108,10 +108,10 @@ def adaClassify(datToClass, classifierArr,Lables):#输入为测试数据和训�
        # print(aggClassEst)
     return sign(aggClassEst),errorRate#返回最后一个分类器的分类结果（效果最好的分类器）
 
-data_arr,class_lables=loadDataFeature("horseColicTraining2.txt")
+data_arr,class_lables=loadDataFeature("horse_Colic_Training.txt")
 weak_ClassArr, agg_ClassEst=adaBoostTrainDS(data_arr, class_lables, numIt=60)#得到训练之后各级弱分类器的参数，和最终的训练结果
 print( weak_ClassArr)  #打印分类器的参数
-data_arr,class_lables=loadtestDataFeature("horseColicTest2.txt")
+data_arr,class_lables=loadtestDataFeature("horse_Colic_Test.txt")
 a,err=adaClassify(data_arr, weak_ClassArr,class_lables)#调用函数用测试集进行测试
 print("results: ",a)
 print("errorrate:",err)
